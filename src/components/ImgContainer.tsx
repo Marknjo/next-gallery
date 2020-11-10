@@ -8,8 +8,13 @@ interface IProps {
 
 export default function ImgContainer({ photo }: IProps) {
   return (
-    <div className='h-64 bg-gray-200 rounded-xl'>
-      <Image src={photo.src.large} width={250} height={250} alt={photo.alt} />
+    <div className='h-64 bg-gray-200 rounded-xl relative overflow-hidden'>
+      <Image
+        src={photo.src.large}
+        fill={true}
+        alt={photo.alt}
+        className='object-cover'
+      />
     </div>
   );
 }
