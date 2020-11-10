@@ -1,6 +1,7 @@
 import { ReactNode } from 'react';
 import env from '../lib/env';
 import fetchImages from '../lib/fetchImages';
+import ImgContainer from './ImgContainer';
 
 function Wrapper({ children }: { children: ReactNode }) {
   return (
@@ -25,7 +26,7 @@ export default async function Gallery() {
   return (
     <Wrapper>
       {galleryData.photos.map((photo) => (
-        <div key={photo.id} className='h-64 bg-gray-200 rounded-xl'></div>
+        <ImgContainer key={photo.id} photo={photo} />
       ))}
     </Wrapper>
   );
