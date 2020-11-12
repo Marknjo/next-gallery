@@ -2,6 +2,7 @@ import { ReactNode } from 'react';
 import env from '../lib/env';
 import fetchImages from '../lib/fetchImages';
 import ImgContainer from './ImgContainer';
+import { addBlurredDataUrls } from '../lib/getBase64';
 
 function Wrapper({ children }: { children: ReactNode }) {
   return (
@@ -23,9 +24,11 @@ export default async function Gallery() {
     );
   }
 
+  const photos = await addBlurredDataUrls(galleryData);
+
   return (
     <Wrapper>
-      {galleryData.photos.map((photo) => (
+      {photos.map((photo) => (
         <ImgContainer key={photo.id} photo={photo} />
       ))}
     </Wrapper>
