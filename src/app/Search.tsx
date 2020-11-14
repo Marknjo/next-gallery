@@ -15,12 +15,15 @@ export default function Search() {
   }
 
   return (
-    <form onClick={searchHandler}>
+    <form
+      onClick={searchHandler}
+      className='flex justify-center md:justify-between'>
       <input
         type='text'
         name='search'
         value={search}
         onChange={(e) => setSearch(e.target.value)}
+        className='bg-white p-2 w-[260px] sm:w-80 text-xl rounded-xl text-black'
       />
     </form>
   );
