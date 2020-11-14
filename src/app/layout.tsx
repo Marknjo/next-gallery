@@ -1,6 +1,7 @@
 import './globals.css';
 import type { Metadata } from 'next';
 import { Roboto } from 'next/font/google';
+import Navbar from './Navbar';
 
 const roboto = Roboto({ subsets: ['latin'], weight: '400' });
 
@@ -17,6 +18,7 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body className={roboto.className}>
+        <Navbar />
         <main className='max-w-6xl mx-auto'>{children}</main>
       </body>
     </html>
