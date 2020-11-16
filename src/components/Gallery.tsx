@@ -12,8 +12,14 @@ function Wrapper({ children }: { children: ReactNode }) {
   );
 }
 
-export default async function Gallery() {
-  const url = `${env.PEXELS_API_URL}/v1/curated `;
+interface IProps {
+  topic?: string;
+}
+
+export default async function Gallery({ topic }: IProps) {
+  let url = `${env.PEXELS_API_URL}/v1/curated`;
+  const searchUrl = topic && `${env.PEXELS_API_URL}/v1/search?query=${topic}`;
+  url = searchUrl || url;
   const galleryData = await fetchImages(url);
 
   if (!galleryData) {
