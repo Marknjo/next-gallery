@@ -6,7 +6,7 @@ import { addBlurredDataUrls } from '../lib/getBase64';
 
 function Wrapper({ children }: { children: ReactNode }) {
   return (
-    <section className='px-2 my-3 grid gap-2 grid-cols-gallery'>
+    <section className='py-1 my-3 grid grid-cols-gallery auto-rows-[10px]'>
       {children}
     </section>
   );
