@@ -14,12 +14,22 @@ function Wrapper({ children }: { children: ReactNode }) {
 
 interface IProps {
   topic?: string;
+  page?: string;
 }
 
-export default async function Gallery({ topic }: IProps) {
-  let url = `${env.PEXELS_API_URL}/v1/curated`;
-  const searchUrl = topic && `${env.PEXELS_API_URL}/v1/search?query=${topic}`;
-  url = searchUrl || url;
+export default async function Gallery({ topic, page }: IProps) {
+  let url = `${env.PEXELS_API_URL}/v1`;
+
+  if (topic === 'curated' && page) {
+    url = `${url}/curated?page=${page}`;
+  } else if (topic === 'curated') {
+    url = `${url}/curated`;
+  } else if (!page) {
+    url = `${url}/search?query=${topic}`;
+  } else {
+    url = `${url}/search?query=${topic}&page=${page}`;
+  }
+
   const galleryData = await fetchImages(url);
 
   if (!galleryData) {
