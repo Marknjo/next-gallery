@@ -15,7 +15,7 @@ export default function Search() {
 
     setIsSearching(true);
 
-    router.push(`/results/${search}`);
+    if (search) router.push(`/results/${search}`);
     setIsSearching(false);
     setSearch('');
     inputRef.current!.focus();
@@ -31,7 +31,7 @@ export default function Search() {
         placeholder='Search'
         ref={inputRef}
         value={isSearching ? `Searching ${search}` : search}
-        onChange={(e) => setSearch(e.target.value)}
+        onChange={(e) => setSearch(e.target.value.trim())}
         className='bg-white p-2 px-3 w-[260px] sm:w-80 text-xl rounded-xl text-black'
       />
     </form>
