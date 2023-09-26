@@ -50,7 +50,7 @@ export default async function Gallery({ topic = 'curated', page }: IProps) {
     url.searchParams.set('page', page);
   }
 
-  const galleryData = await fetchImages(url.origin);
+  const galleryData = await fetchImages(url.href);
 
   if (!galleryData || galleryData.per_page === 0) {
     return (
