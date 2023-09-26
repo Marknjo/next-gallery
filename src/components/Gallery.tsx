@@ -6,7 +6,7 @@ import { addBlurredDataUrls } from '../lib/getBase64';
 import getPrevNextPages from '../lib/getPrevNextPages';
 import Footer from './Footer';
 
-function Wrapper({
+export function Wrapper({
   children,
   className,
 }: {
