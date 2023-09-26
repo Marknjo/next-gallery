@@ -31,9 +31,10 @@ export default function ImgContainer({ photo }: IProps) {
             alt={photo.alt}
             sizes='250px'
             className='hover:opacity-75 cursor-pointer'
-            loading='lazy'
             placeholder='blur'
             blurDataURL={photo.blurredDataUrl}
+            priority={false}
+            style={{ width: 250, height: galleryHeight }}
           />
         </div>
       </Link>
