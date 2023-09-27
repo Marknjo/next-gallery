@@ -15,7 +15,7 @@ export function Wrapper({
 }) {
   return (
     <section
-      className={`py-1 my-3 grid grid-cols-gallery auto-rows-[10px] ${
+      className={`my-4 sm:my-8 grid grid-cols-gallery auto-rows-[10px] ${
         className ? className : ''
       }`}>
       {children}
