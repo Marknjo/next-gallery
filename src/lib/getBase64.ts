@@ -1,7 +1,7 @@
 import { getPlaiceholder } from 'plaiceholder';
 import { ImagesResults, Photo } from '../model/Images';
 
-async function getBase64(imageUrl: string) {
+export async function getBase64(imageUrl: string) {
   try {
     const res = await fetch(imageUrl);
 
