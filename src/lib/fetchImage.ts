@@ -1,4 +1,3 @@
-import { getPlaiceholder } from 'plaiceholder';
 import { Photo, SingleImageSchema } from '../model/Images';
 import env from './env';
 import { getBase64 } from './getBase64';
@@ -24,6 +23,7 @@ export default async function fetchImage(
 
     if (!parsedData) return undefined;
 
+    // add blurredDataUrl to the parsedData
     const base64Img = await getBase64(parsedData.src.large);
 
     parsedData.blurredDataUrl = base64Img;
